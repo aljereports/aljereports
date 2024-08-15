@@ -105,12 +105,12 @@
 				$("#euStatus").html("<span style='color:#000;'>Submitting data, please wait...</span>");
 				$.post("https://script.google.com/macros/s/"+$("#euGID").val()+"/exec",
 				{
-					Date: $("#Date").val(),
-					Store: $("#Store").val(),
-					Branch: $("#Branch").val(),
-					Item_Code: itemName,
-					Quantity: itemQty,
-					Message: $("#Message").val()
+					date: $("#Date").val(),
+					store: $("#Store").val(),
+					branch: $("#Branch").val(),
+					item_Code: itemName,
+					quantity: itemQty,
+					message: $("#Message").val()
 				},
 				function (data, status) {
 					alert("Data: " + data.result + "\nStatus: " + status);
