@@ -74,21 +74,137 @@
     $("#Date").datepicker({
       dateFormat: "dd-MM-yy"
     });
-  });
+  
+	var availableTags = [
+    "WWA20K22R",
+	"GR-RT730WE-PMU (49)",
+	"DW-14F1ME(S)",
+	"GR-RT830WE",
+	"GR-RT730WE-PMU(04)",
+	"TBA-36LMG5G08",
+	"AW-UK1100HUPB",
+	"MM-EG25PB",
+	"DS24T23",
+	"WMW20VD",
+	"AW-UK1100HUPBB",
+	"AW-DK1775WUP",
+	"WW92MBR",
+	"D14WDFS",
+	"R-20AS",
+	"WNGB90JB",
+	"MW MM20PBW",
+	"WW1200MT11",
+	"AW-UK1100HUPBB(SG)",
+	"DW-14F1N",
+	"DPMV20VS",
+	"C50DL6NX",
+	"DS18T23",
+	"HW18CA23",
+	"ES-FE712DLZS",
+	"AWDUK1200GUPBDS",
+	"TBA 36LMG5G089KS",
+	"DPMW20VW",
+	"GR-RT730WE",
+	"AW-DK1775WUPBB(WK)",
+	"WW600MT",
+	"R20AS",
+	"MMEG25PB",
+	"VCDR200",
+	"WW09TL",
+	"WW07TL",
+	"MM-EM23P",
+	"DES24T23C",
+	"DE13WD3FSNBCW",
+	"WWFLC10VW1208S",
+	"GRRT730WEPMU01",
+	"WW410TMR MC SX",
+	"DS24T23 2TON",
+	"WW900MT11",
+	"RWF-W1615BU",
+	"WWA20K",
+	"TBA-24 BMG4GO",
+	"DW-14 F1ME",
+	"GR-RT830WEPMU(49)",
+	"TWD-BK90S2(SK)",
+	"MMEG34PBK",
+	"AF-A24ATSH",
+	"TBA-36LMG5G089KS.SA",
+	"TWD-BJ110M4BB=3399",
+	"GR-RT830WE-PMU",
+	"DW-14F1ME[S]",
+	"TWB-36LMG5G089K",
+	"DPMW20",
+	"TBA-36LMG",
+	"D14WD3FS",
+	"VC-DR180",
+	"VH-K130WBB",
+	"DW-14F1ME(W)",
+	"TBA-36LMG5G089KS-SA",
+	"AW-K800AUPBB",
+	"MM-EG25PBK",
+	"GRRT830WEPMU49",
+	"DCFAM300",
+	"ES-FE712DLZ",
+	"R75AS",
+	"WW297TMR",
+	"GR-RT730WE-PMU(49)",
+	"AW-UK800HUBB",
+	"AW-K800HUBB",
+	"TBA-36MG5G089KS",
+	"VH-K110WBB",
+	"AW-UK1100HUBB",
+	"TW-BK110G4BB",
+	"TWD-BJ110WM4BB(SK)",
+	"AW-DK1775WUPBB",
+	"GR-RT830WE(01)",
+	"TBA-24MG4G0KS",
+	"AW-DK1775WUBB",
+	"TW-BK110G4BB(SK)",
+	"VC-DR200ABF",
+	"AW-DUK1301KUPBB(SK)",
+	"VC-DR2200ABF",
+	"TWD-BJ110M4BB(SK)",
+	"WWS18K23I",
+	"EC-CAS2121-Z",
+	"DW-14F2ME(BS)",
+	"AW-K900DUPBB",
+	"GR-RF610WE-PMU-37",
+	"AW-DUK2217WUPBB",
+	"WW251TMR-MC-FS",
+	"TBA-24BMG4G089KS-SA",
+	"DW-14F1ME-W",
+	"AW-DUK1200GUPBB",
+	"DW-14F2ME-SS",
+	"GR-RT624WE-PMU-37",
+	"AW-UK1100HUPBB-SG",
+	"VH-J150WBB",
+	"DW-15F3ME-BS",
+	"GR-RT730WE-PMU-1",
+	"GR-RT830WE-PMU-49",
+	"TWD-BJ110M4BB-SK",
+    ];
+    $( ".item-name" ).autocomplete({
+      source: availableTags
+    });
 
-  // Function to Add New Item Row
-  $('#add-item-btn').click(function() {
-	const newRow = `
-      <div class="row g-2 mb-2 item-row">
-        <div class="col-8">
-          <input type="text" class="form-control item-name" placeholder="Item Name" required>
-        </div>
-        <div class="col-4">
-          <input type="number" class="form-control item-qty" placeholder="Qty" required>
-        </div>
-      </div>
-    `;
-    $('#items-container').append(newRow);
+	// Function to Add New Item Row
+	$('#add-item-btn').click(function() {
+		const newRow = `
+		<div class="row g-2 mb-2 item-row">
+			<div class="col-8">
+			<input type="text" class="form-control item-name" placeholder="Item Name" required>
+			</div>
+			<div class="col-4">
+			<input type="number" class="form-control item-qty" placeholder="Qty" required>
+			</div>
+		</div>
+		`;
+		$('#items-container').append(newRow);
+		// Re-initialize autocomplete for dynamically added input
+		$(".item-name").last().autocomplete({
+			source: availableTags
+		});
+	});
   });
 
   $('#submit_btn').click(function() 
